@@ -1,0 +1,14 @@
+class Solution(object):
+    def removeNodes(self, head):
+        stack=[]
+        du=headnew= ListNode(None,head)
+        cu=head
+        while cu:
+            while stack and stack[-1].val<cu.val:
+                stack.pop()
+            stack.append(cu)
+            cu=cu.next
+        for node in stack:
+            headnew.next=node
+            headnew=headnew.next
+        return du.next
