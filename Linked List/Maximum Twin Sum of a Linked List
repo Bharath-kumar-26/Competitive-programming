@@ -1,0 +1,13 @@
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+        f=s=head
+        stack=[]
+        r=0
+        while f and f.next:
+            f=f.next.next
+            stack.append(s)
+            s=s.next
+        while s:
+            r=max(r,stack.pop().val+s.val)
+            s=s.next
+        return r
